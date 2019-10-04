@@ -5,7 +5,6 @@
 
 plot_ci <- function(dots, shade){
   suppressMessages(library(tidyverse))
-  library(nur1027functions)
   library(infer)
   library(dabestr)
   options(warn = -1)
