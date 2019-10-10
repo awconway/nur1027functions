@@ -5,16 +5,16 @@
 
 plot_ci <- function(dots, shade){
   suppressMessages(library(tidyverse))
-  library(infer)
-  library(dabestr)
+  suppressMessages(library(infer))
+  suppressMessages(library(dabestr))
   options(warn = -1)
   
   sample_mean_diff <- data %>% 
-    specify(GH ~ depressed) %>%
+    specify(BP ~ depressed) %>%
     calculate(stat = "diff in means", 
               order = c("depressed", "not depressed"))
   
-  unpaired_mean_diff <- dabestr::dabest(data, depressed, GH,
+  unpaired_mean_diff <- dabestr::dabest(data, depressed, BP,
                                         idx = c("not depressed", "depressed"),
                                         paired = FALSE, reps = 1000, seed = 272)
   
