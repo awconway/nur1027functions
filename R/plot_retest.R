@@ -13,7 +13,7 @@
 #' 
 #' @export
 plot_retest <- function(x,y){
-ggplot2::ggplot(data = retest::temperature, ggplot2::aes(x = {{x}}, y = {{ y }}, group = ID)) + 
+ggplot2::ggplot(data = temperature, ggplot2::aes(x = {{x}}, y = {{ y }}, group = ID)) + 
   ggplot2::geom_line(ggplot2::aes(colour=ID), show.legend=F) + 
     ggplot2::labs(x="Measurement", y="Temperature") + ggplot2::theme_bw() + 
     ggplot2::theme(panel.border = ggplot2::element_blank(),  

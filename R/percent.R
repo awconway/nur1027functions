@@ -8,6 +8,6 @@
 #' @export
 percent <- function(data){
   suppressMessages(library(agree))
- a <-  irr::agree(data)
+ a <-  agree(data)
  paste(round(a$value,0), "%", sep = "")
 }
