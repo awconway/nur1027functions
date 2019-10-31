@@ -22,6 +22,6 @@ stargazer2 <- function(model, odd.ratio = TRUE, ...) {
     
   } else {
     stargazer::stargazer(model, type = "text", single.row = TRUE,
-                         ci=TRUE, omit.stat=c("aic", "ll"), ...)
+                         ci=TRUE, omit.stat=c("aic", "ll"))
   }
 }
