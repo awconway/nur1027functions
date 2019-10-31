@@ -9,8 +9,7 @@
 #' @export
 #'
 #
-stargazer2 <- function(model, odd.ratio = TRUE, type = "text", single.row = TRUE,
-                       ci=TRUE, omit.stat=c("aic", "ll"), ...) {
+stargazer2 <- function(model, odd.ratio = TRUE, ...) {
   suppressMessages(library(stargazer))
   
   if(!("list" %in% class(model))) model <- list(model)
@@ -19,7 +18,8 @@ stargazer2 <- function(model, odd.ratio = TRUE, type = "text", single.row = TRUE
     coefOR2 <- lapply(model, function(x) exp(stats::coefficients(x)))
     seOR2 <- lapply(model, function(x) exp(stats::coefficients(x)) * summary(x)$coef[, 2])
     p2 <- lapply(model, function(x) summary(x)$coefficients[, 4])
-    stargazer::stargazer(model, coef = coefOR2, se = seOR2, p = p2, ...)
+    stargazer::stargazer(model, coef = coefOR2, se = seOR2, p = p2, type = "text", single.row = TRUE,
+                         ci=TRUE, omit.stat=c("aic", "ll"), ...)
     
   } else {
     stargazer::stargazer(model, ...)
