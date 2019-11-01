@@ -18,7 +18,7 @@ stargazer2 <- function(model, odd.ratio = TRUE, ...) {
     coefOR2 <- lapply(model, function(x) exp(stats::coefficients(x)))
     seOR2 <- lapply(model, function(x) exp(stats::coefficients(x)) * summary(x)$coef[, 2])
     p2 <- lapply(model, function(x) summary(x)$coefficients[, 4])
-    stargazer::stargazer(model, coef = coefOR2, se = seOR2, p = p2, type = "text", single.row = TRUE,
+    stargazer::stargazer(model, coef = coefOR2, se = seOR2, p = p2, type = "text", single.row = FALSE,
                          ci=TRUE, omit.stat=c("aic", "ll"), ...)
     
   } else {
